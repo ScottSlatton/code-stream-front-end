@@ -1,5 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
+import Key from '../.key.js'
+
 
 
 class UserShow extends React.Component {
@@ -19,7 +21,7 @@ state={
     fetch(`https://api.twitch.tv/helix/streams?user_id=${this.state.id}`, {
       method: "GET",
       headers: {
-        'Client-ID': 'x0fppvthz2c0q5o39asuuigdu4icom'
+        'Client-ID': Key
       }
     }).then(resp => resp.json())
     .then(stream => {

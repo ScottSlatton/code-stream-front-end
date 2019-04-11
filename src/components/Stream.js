@@ -1,6 +1,7 @@
 import React from 'react'
 import StreamCard from './StreamCard'
 import Jumbotron from './Jumbotron'
+import Key from '../.key.js'
 
 
 class Stream extends React.Component {
@@ -15,7 +16,7 @@ class Stream extends React.Component {
     fetch('https://api.twitch.tv/helix/streams', {
       method: "GET",
       headers: {
-        'Client-ID': 'x0fppvthz2c0q5o39asuuigdu4icom'
+        'Client-ID': Key
       }
     }).then(resp => resp.json())
     .then(streams => {
