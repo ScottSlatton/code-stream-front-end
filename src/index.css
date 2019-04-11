@@ -12,3 +12,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.card {
+  width: 15rem;
+  height: 17rem;
+  margin: 10px;
+}
+
+.card-body{
+  padding: 5px;
+  overflow:scroll;
+}
+.stream_card_container{
+  display: flex;
+  overflow:scroll;
+}
+
+.jumbotron{
+  width: 100%;
+  padding: 10px;
+}
