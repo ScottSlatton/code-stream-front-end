@@ -17,6 +17,13 @@ code {
   width: 15rem;
   height: 17rem;
   margin: 10px;
+  transition: .5s;
+
+}
+
+.card:hover{
+  transform: scale(1.09);
+  box-shadow: 1px 3px 5px #555555;
 }
 
 .card-body{
@@ -31,4 +38,18 @@ code {
 .jumbotron{
   width: 100%;
   padding: 10px;
+}
+
+.login_form_container{
+  background-color: #f2f2f2;
+  margin-top:10vh;
+  margin-left:40vw;
+  margin-right:40vw;
+  padding-bottom: 20vh;
+
+
+}
+.login_form{
+  align-content: center;
+  padding-top: 100px;
 }
