@@ -41,9 +41,31 @@ class NavBar extends React.Component {
           <a class="dropdown-item" href="/user/edit">My Account</a>
         </div>
       </li>
-
     </ul>
+
+
   </div>
+  <form class="form-inline">
+    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><i class="far fa-user"></i></div>
+      </div>
+      <input type="text" class="form-control" id="username_login" placeholder="Username" />
+    </div>
+
+  <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fas fa-key"></i></div>
+    </div>
+    <input type="password" class="form-control" id="password_login" placeholder="password" />
+  </div>
+
+  
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>
+
 </nav>
 
 
