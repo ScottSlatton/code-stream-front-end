@@ -8,6 +8,7 @@
 ###FrontEnd
 nav bar for all screens
 
+pass user id into Navbar so edit user link works
 
 
 

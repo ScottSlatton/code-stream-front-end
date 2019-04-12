@@ -8,7 +8,8 @@ class Stream extends React.Component {
   constructor(){
     super()
     this.state = {
-      streams: []
+      streams: [],
+      jumbotronStream: []
     }
   }
 
@@ -20,39 +21,46 @@ class Stream extends React.Component {
       }
     }).then(resp => resp.json())
     .then(streams => {
-      this.setStreams(streams)}
-    )
+      this.setState({
+        streams: streams.data
+      }, this.setJumbotron(this.state.streams.slice(0, 1)))
+    })
+
   }
 
-  setStreams = (streams) =>{
+  setJumbotron =(stream) => {
+    let counter = 0
+    console.log("setJumotron has been called: ", counter += 1)
     this.setState({
-      streams: streams.data
+      jumbotronStream: stream
     })
   }
 
   handleClickOnStream =(stream) => {
-    console.log(stream)
-    return
-    // take clicker to users show page
+    console.log('click the stream', stream)
+      this.setJumbotron(stream)
+    console.log('state was set', this.state.jumbotronStream)
+
   }
 
   renderStreams = () => {
+
       return this.state.streams.map(stream => {
-        if(this.state.streams[0] === stream){
-          return null
-        } else {
+
           return  <StreamCard
           stream={stream}
           key={stream.title}
           handleClickOnStream={this.handleClickOnStream}/>
-        }
+
       })
   }
+
 
   render () {
     return(
       <div>
-      <Jumbotron stream={this.state.streams[0]}/>
+      <Jumbotron stream={this.state.jumbotronStream}/>
+      <h6>Live Streams </h6>
         <div class="stream_card_container">
           {this.renderStreams()}
         </div>

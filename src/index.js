@@ -13,6 +13,7 @@ ReactDOM.render((
     <React.Fragment>
       <Route exact path ='/' component={Home} />
       <Route  path ='/show/:id' component={UserShow} />
+      <Route  path ='/user/:id/edit' component={UserShow} />
       <Route   path ='/login' component={Login} />
     </React.Fragment>
   </Router>),

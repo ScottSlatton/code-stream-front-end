@@ -36,8 +36,6 @@ class NavBar extends React.Component {
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/login">Login/Logout</a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/user/edit">My Account</a>
         </div>
       </li>
@@ -62,8 +60,8 @@ class NavBar extends React.Component {
     <input type="password" class="form-control" id="password_login" placeholder="password" />
   </div>
 
-  
-  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+  <button type="submit" class="btn btn-primary mb-2">Get me in there</button>
 </form>
 
 </nav>
