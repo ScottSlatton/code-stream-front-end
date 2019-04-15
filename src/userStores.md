@@ -9,14 +9,15 @@
 nav bar for all screens
 
 pass user id into Navbar so edit user link works
-
+Set up Bootstrap with proper react version
 
 
 ### User stories
 A user can login
 A user can follow other users
+And see followed users streams on home page.
+See favorited vides on home page
 A user can link to their videos that we can display
-
 
 
 #User
@@ -27,3 +28,30 @@ Can Delete account - Delete
 
 On users show page display active video see videos with iframes
 User can see sorted videos by category
+
+
+Associations
+
+##User
+
+front end does fetch request to backend (local host)
+back end does http request to Twitch
+Twitch returns the data to the backend
+back end sends that to front end as the response to the original fetch
+
+### come back to
+password validation- client side. repeat password etc
+  if errors on initial signup throw an error and dont re direct.
+
+
+
+
+
+
+
+
+
+
+
+
+.

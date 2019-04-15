@@ -1,7 +1,6 @@
 import React from 'react'
 import StreamCard from './StreamCard'
 import Jumbotron from './Jumbotron'
-import Key from '../.key.js'
 
 
 class Stream extends React.Component {
@@ -14,12 +13,8 @@ class Stream extends React.Component {
   }
 
   componentDidMount(){
-    fetch('https://api.twitch.tv/helix/streams', {
-      method: "GET",
-      headers: {
-        'Client-ID': Key
-      }
-    }).then(resp => resp.json())
+    fetch('http://localhost:3000/api/v1/users/1/videos')
+    .then(resp => resp.json())
     .then(streams => {
       this.setState({
         streams: streams.data
@@ -61,7 +56,7 @@ class Stream extends React.Component {
       <div>
       <Jumbotron stream={this.state.jumbotronStream}/>
       <h6>Live Streams </h6>
-        <div class="stream_card_container">
+        <div className="stream_card_container">
           {this.renderStreams()}
         </div>
       </div>

@@ -13,6 +13,18 @@ code {
     monospace;
 }
 
+.primary-color{
+  background-color: #548AE8
+}
+.secondary-color{
+  background-color: #FF9A2E
+}
+.secondary-color-d{
+  background-color: #4775C4
+}
+
+
+
 .card {
   width: 15rem;
   height: 17rem;

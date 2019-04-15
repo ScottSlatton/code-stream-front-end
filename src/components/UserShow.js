@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './NavBar'
-import Key from '../.key.js'
+// import Key from '../.key.js'
 
 
 
@@ -17,20 +17,20 @@ state={
     }, this.fetchThisUsersData)
   }
 
-  fetchThisUsersData =() =>  {
-    fetch(`https://api.twitch.tv/helix/streams?user_id=${this.state.id}`, {
-      method: "GET",
-      headers: {
-        'Client-ID': Key
-      }
-    }).then(resp => resp.json())
-    .then(stream => {
-      this.setState({
-        stream: stream.data[0]
-      })
-      }
-    )
-  }
+  // fetchThisUsersData =() =>  {
+  //   fetch(`https://api.twitch.tv/helix/streams?user_id=${this.state.id}`, {
+  //     method: "GET",
+  //     headers: {
+  //       'Client-ID': Key
+  //     }
+  //   }).then(resp => resp.json())
+  //   .then(stream => {
+  //     this.setState({
+  //       stream: stream.data[0]
+  //     })
+  //     }
+  //   )
+  // }
 
   render () {
     const stream = this.state.stream
