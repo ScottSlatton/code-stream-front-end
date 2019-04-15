@@ -8,7 +8,7 @@ class Stream extends React.Component {
     super()
     this.state = {
       streams: [],
-      jumbotronStream: []
+      jumbotronStream:''
     }
   }
 
@@ -18,13 +18,16 @@ class Stream extends React.Component {
     .then(streams => {
       this.setState({
         streams: streams.data
-      }, this.setJumbotron(this.state.streams.slice(0, 1)))
+      })
     })
-
+      .then( streams=>{
+         const streamArray = this.state.streams.slice(0, 1)
+        this.setJumbotron(streamArray[0])
+      })
   }
 
   setJumbotron =(stream) => {
-    let counter = 0
+    console.log('jumbo', stream)
     this.setState({
       jumbotronStream: stream
     })
@@ -38,7 +41,6 @@ class Stream extends React.Component {
   }
 
   renderStreams = () => {
-
       return this.state.streams.map(stream => {
 
           return  <StreamCard
@@ -51,6 +53,7 @@ class Stream extends React.Component {
 
 
   render () {
+    console.log(this.state.streams)
     return(
       <div>
       <Jumbotron stream={this.state.jumbotronStream}/>
