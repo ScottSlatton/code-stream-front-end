@@ -25,7 +25,6 @@ class Stream extends React.Component {
 
   setJumbotron =(stream) => {
     let counter = 0
-    console.log("setJumotron has been called: ", counter += 1)
     this.setState({
       jumbotronStream: stream
     })

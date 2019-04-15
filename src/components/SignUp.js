@@ -16,6 +16,7 @@ class SignUp extends React.Component{
   }
 
   handleSubmit = (e) => {
+    e.preventDefault();
     const body={
       user: {
         username: this.state.username,
@@ -33,6 +34,7 @@ class SignUp extends React.Component{
     .then(user => {
       this.props.setLoggedInUser(user)
     })
+    .then(this.props.dismountSignUp)
   }
 
   render(){
@@ -63,6 +65,9 @@ class SignUp extends React.Component{
               </div>*/}
           <div className="form-group">
               <button  type="submit" className="btn btn-primary btn-block"> Create Account  </button>
+          </div>
+          <div className="form-group">
+              <button onClick={this.props.dismountSignUp} className="btn btn-primary btn-block"> Back  </button>
           </div>
       </form>
     </div>

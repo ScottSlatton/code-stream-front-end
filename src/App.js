@@ -11,24 +11,58 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state={
-      loggedInUser: {}
+      loggedInUser: {},
+      loggedIn: false,
+      displaySignUp: false
     }
   }
 
-  setLoggedInUser = (user) =>{
+  setLoggedInUser = ( user) =>{
     console.log('User within home.js')
     this.setState({
-      loggedInUser: user
+      loggedInUser: user,
+      loggedIn: true
     })
   }
-  
+
+  renderSignUp =(e) =>{
+    this.setState({
+      displaySignUp: true
+    })
+  }
+
+  dismountSignUp=(e) =>{
+    this.setState({
+      displaySignUp: false
+    })
+  }
+
+  signOut =() =>{
+    this.setState({
+      loggedInUser: {}
+    })
+  }
+
+  logInUser =() => {
+
+  }
+
   render() {
-    return (
-      <div className="Home">
-      <NavBar setLoggedInUser={this.setLoggedInUser} />
-      <Home />
-      </div>
-    );
+    if(!this.state.displaySignUp) {
+      return <div className="Home">
+              <NavBar  renderSignUp={this.renderSignUp}
+                loggedInUser={this.state.loggedInUser}
+                setLoggedInUser={this.setLoggedInUser}
+                loggedIn={this.state.loggedIn}
+                logInUser={this.logInUser}/>
+              <Home />
+            </div>
+    } else {
+      return <SignUp setLoggedInUser={this.setLoggedInUser}
+                      dismountSignUp={this.dismountSignUp}
+                      signOut={this.signOut}/>
+    }
+
   }
 }
 

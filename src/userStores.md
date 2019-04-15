@@ -48,6 +48,22 @@ password validation- client side. repeat password etc
 
 
 
+###What I'm trying to do
+Within navbar have username and password with Login and Signup buttons
+
+On button to log in
+  - fetch from backend and check if user is exists
+  - if user exists change details to render on screen
+
+On signup button
+  - take details held in input fields and send fetch request to create a new user
+  - render all stuff until they have some stuff favorited or added their own videos to display. 
+
+
+
+
+
+
 
 
 

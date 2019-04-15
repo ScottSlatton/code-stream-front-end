@@ -1,11 +1,41 @@
-import React from 'react'
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 
 
-
-class NavBar extends React.Component {
+class NavBar extends Component {
   constructor(props){
     super(props)
+    this.state={
+      username: '',
+      password: ''
+    }
+  }
+
+  handleChange =(e) =>{
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleSubmit =(e) =>{
+    e.preventDefault();
+    const body={
+        username: this.state.username,
+        password: this.state.password
+    }
+
+    fetch('http://localhost:3000/sessions/create',{
+      method: "POST",
+      headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    })
+    .then(resp => resp.json())
+    .then(user => {
+      this.props.setLoggedInUser(user)
+    })
   }
 
 
@@ -47,13 +77,16 @@ class NavBar extends React.Component {
 
 
   </div>
-  <form className="form-inline">
+  { !this.props.loggedIn ? <span>
+  <form className="form-inline" onSubmit={this.handleSubmit}>
     <label className="sr-only" htmlFor="inlineFormInputGroupUsername2">Username</label>
     <div className="input-group mb-2 mr-sm-2">
       <div className="input-group-prepend">
         <div className="input-group-text"><i className="far fa-user"></i></div>
       </div>
-      <input type="text" className="form-control" id="username_login" placeholder="Username" />
+      <input type="text" name='username'
+        className="form-control" id="username_login" placeholder="Username"
+        onChange={this.handleChange}/>
     </div>
 
   <label className="sr-only" htmlFor="inlineFormInputGroupUsername2">Username</label>
@@ -61,18 +94,22 @@ class NavBar extends React.Component {
     <div className="input-group-prepend">
       <div className="input-group-text"><i className="fas fa-key"></i></div>
     </div>
-    <input type="password" className="form-control" id="password_login" placeholder="password" />
+    <input type="password" name='password'
+      className="form-control" id="password_login" placeholder="Password" onChange={this.handleChange}/>
   </div>
 
 
   <button type="submit" className="btn secondary-color mb-2">Login</button>
 </form>
 
-<Link to='/signup' setLoggedInUser={this.setLoggedInUser}>
-  <form>
+  <form onSubmit={this.props.renderSignUp}>
     <button type='submit' className="btn secondary-color-d mb-2">Signup</button>
   </form>
-</Link>
+</span>
+  : <form onSubmit={this.props.signOut}>
+    <button type='submit' className="btn secondary-color-d mb-2">Sign Out</button>
+  </form>
+    }
 </nav>
 
 

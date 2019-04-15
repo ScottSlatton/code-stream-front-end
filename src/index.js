@@ -13,7 +13,6 @@ ReactDOM.render((
     <React.Fragment>
       <Route exact path ='/' component={App} />
       <Route  path ='/show/:id' component={UserShow} />
-      <Route   path ='/signup' component={SignUp} />
       <Route  path ='/user/:id/edit' component={UserShow} />
     </React.Fragment>
   </Router>),
